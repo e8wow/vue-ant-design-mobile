@@ -17,6 +17,7 @@ module.exports = {
     plugins: [
         'html',
         'vue',
+        'vuefix',
     ],
     // add your custom rules here
     'rules': {
