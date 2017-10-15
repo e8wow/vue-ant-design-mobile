@@ -1,5 +1,5 @@
-@import '../../style/mixins';
-@import '../../style/themes/default';
+@import '../../style/mixins.less';
+@import '../../style/themes/default.less';
 
 @listPrefixCls: am-list;
 
@@ -217,6 +217,10 @@
         }
 
         &-wrap {
+            .@{listPrefixCls}-brief { //描述文本超出换行
+                white-space: normal;
+            }
+
             .@{listPrefixCls}-content {
                 white-space: normal;
             }
