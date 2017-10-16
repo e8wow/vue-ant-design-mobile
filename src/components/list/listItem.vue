@@ -15,15 +15,15 @@
             </div>
             <div v-if="arrow" :class="arrowCls" aria-hidden="true"></div>
         </div>
-        <ripple v-if="platform==='android'"/><!-- // TODO IOS样式没有写 -->
+        <ripple2 v-if="platform==='android'"/><!-- // TODO IOS样式没有写 -->
     </div>
 </template>
 
 <script>
-import Ripple from '../ripple/ripple.vue'
+import Ripple2 from '../ripple/ripple2.vue'
 
 export default {
-    components: {Ripple},
+    components: {Ripple2},
     props: {
         thumb: String,
         extra: String,
