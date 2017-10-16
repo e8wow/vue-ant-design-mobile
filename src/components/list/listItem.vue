@@ -15,7 +15,7 @@
             </div>
             <div v-if="arrow" :class="arrowCls" aria-hidden="true"></div>
         </div>
-        <ripple/>
+        <ripple v-if="platform==='android'"/><!-- // TODO IOS样式没有写 -->
     </div>
 </template>
 

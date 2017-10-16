@@ -9,7 +9,7 @@
                 Title
                 <brief>subtitle</brief>
             </list-item>
-            <list-item arrow="horizontal" multipleLine>
+            <list-item arrow="horizontal" multipleLine platform="android">
                 ListItem （Android）
                 <brief>There may have water ripple effect of <br/> material if you set the click event.</brief>
             </list-item>
