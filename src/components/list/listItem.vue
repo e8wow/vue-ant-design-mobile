@@ -42,7 +42,7 @@ export default {
         activeStyle: Object, // TODO 可能不是Object可能是String
         platform: {
             type: String,
-            default: 'cross'
+            default: 'ios'
         },
         disabled: Boolean
     },
