@@ -1,5 +1,5 @@
 <template>
-    <div :class="`${prefixCls}+item`">
+    <div :class="`${prefixCls}-item`">
         <slot></slot>
     </div>
 </template>

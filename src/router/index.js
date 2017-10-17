@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 const Index = (resolve) => { require(['./index.vue'], resolve) }
+const Flex = (resolve) => { require(['../components/flex/demo/index.vue'], resolve) }
 const List = (resolve) => { require(['../components/list/demo/index.vue'], resolve) }
 const WhiteSpace = (resolve) => { require(['../components/white-space/demo/index.vue'], resolve) }
 
@@ -12,6 +13,10 @@ export default new Router({
         name: 'index',
         path: '/',
         component: Index
+    }, {
+        name: 'flex',
+        path: '/flex',
+        component: Flex
     }, {
         name: 'list',
         path: '/list',

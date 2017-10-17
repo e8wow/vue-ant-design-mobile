@@ -25,33 +25,33 @@ export default {
         wrapCls () {
             return [
                 this.prefixCls,
+                {[`${this.prefixCls}-dir-row`]: this.direction === 'row'},
+                {[`${this.prefixCls}-dir-row-reverse`]: this.direction === 'row-reverse'},
+                {[`${this.prefixCls}-dir-column`]: this.direction === 'column'},
+                {[`${this.prefixCls}-dir-column-reverse`]: this.direction === 'column-reverse'},
 
-                {[`${this.prefixCls}-dir-row`]: direction === 'row'},
-                {[`${this.prefixCls}-dir-row-reverse`]: direction === 'row-reverse'},
-                {[`${this.prefixCls}-dir-column`]: direction === 'column'},
-                {[`${this.prefixCls}-dir-column-reverse`]: direction === 'column-reverse'},
+                {[`${this.prefixCls}-nowrap`]: this.wrap === 'nowrap'},
+                {[`${this.prefixCls}-wrap`]: this.wrap === 'wrap'},
+                {[`${this.prefixCls}-wrap-reverse`]: this.wrap === 'wrap-reverse'},
 
-                {[`${this.prefixCls}-nowrap`]: wrap === 'nowrap'},
-                {[`${this.prefixCls}-wrap`]: wrap === 'wrap'},
-                {[`${this.prefixCls}-wrap-reverse`]: wrap === 'wrap-reverse'},
+                {[`${this.prefixCls}-justify-start`]: this.justify === 'start'},
+                {[`${this.prefixCls}-justify-end`]: this.justify === 'end'},
+                {[`${this.prefixCls}-justify-center`]: this.justify === 'center'},
+                {[`${this.prefixCls}-justify-between`]: this.justify === 'between'},
+                {[`${this.prefixCls}-justify-around`]: this.justify === 'around'},
 
-                {[`${this.prefixCls}-justify-start`]: justify === 'start'},
-                {[`${this.prefixCls}-justify-end`]: justify === 'end'},
-                {[`${this.prefixCls}-justify-center`]: justify === 'center'},
-                {[`${this.prefixCls}-justify-between`]: justify === 'between'},
-                {[`${this.prefixCls}-justify-around`]: justify === 'around'},
+                {[`${this.prefixCls}-align-start`]: this.align === 'start'},
+                {[`${this.prefixCls}-align-center`]: this.align === 'center'},
+                {[`${this.prefixCls}-align-end`]: this.align === 'end'},
+                {[`${this.prefixCls}-align-baseline`]: this.align === 'baseline'},
+                {[`${this.prefixCls}-align-stretch`]: this.align === 'stretch'},
 
-                {[`${this.prefixCls}-align-start`]: align === 'start'},
-                {[`${this.prefixCls}-align-center`]: align === 'center'},
-                {[`${this.prefixCls}-align-end`]: align === 'end'},
-                {[`${this.prefixCls}-align-baseline`]: align === 'baseline'},
-                {[`${this.prefixCls}-align-stretch`]: align === 'stretch'},
-                {[`${this.prefixCls}-align-content-start`]: alignContent === 'start'},
-                {[`${this.prefixCls}-align-content-end`]: alignContent === 'end'},
-                {[`${this.prefixCls}-align-content-center`]: alignContent === 'center'},
-                {[`${this.prefixCls}-align-content-between`]: alignContent === 'between'},
-                {[`${this.prefixCls}-align-content-around`]: alignContent === 'around'},
-                {[`${this.prefixCls}-align-content-stretch`]: alignContent === 'stretch'}
+                {[`${this.prefixCls}-align-content-start`]: this.alignContent === 'start'},
+                {[`${this.prefixCls}-align-content-end`]: this.alignContent === 'end'},
+                {[`${this.prefixCls}-align-content-center`]: this.alignContent === 'center'},
+                {[`${this.prefixCls}-align-content-between`]: this.alignContent === 'between'},
+                {[`${this.prefixCls}-align-content-around`]: this.alignContent === 'around'},
+                {[`${this.prefixCls}-align-content-stretch`]: this.alignContent === 'stretch'}
             ]
         }
     }
@@ -59,5 +59,5 @@ export default {
 </script>
 
 <style lang="less">
-    @import "style/index.less";
+    @import "./style/index.less";
 </style>
