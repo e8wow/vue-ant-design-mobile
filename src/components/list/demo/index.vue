@@ -77,13 +77,12 @@
 </template>
 
 <script>
-import Brief from '../brief.vue'
+import Brief from '../Brief.vue'
 import List from '../index.vue'
-import ListItem from '../listItem.vue'
-import Ripple from '../../ripple/ripple.vue'
+import ListItem from '../ListItem.vue'
 
 export default {
-    components: {Brief, List, ListItem, Ripple},
+    components: {Brief, List, ListItem},
     data () {
         return {
             disabled: false

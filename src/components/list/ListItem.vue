@@ -15,12 +15,12 @@
             </div>
             <div v-if="arrow" :class="arrowCls" aria-hidden="true"></div>
         </div>
-        <ripple2 v-if="!disabled && activeType === 'android'"></ripple2>
+        <ripple2 v-if="activeType === 'android'" :isProduction="!disabled"></ripple2>
     </div>
 </template>
 
 <script>
-import Ripple2 from '../ripple/ripple2.vue'
+import Ripple2 from '../ripple/Ripple2.vue'
 
 export default {
     components: {Ripple2},
