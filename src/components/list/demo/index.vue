@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="list-container">
         <list renderHeader="Basic Style">
             <list-item extra="extra content">Title</list-item>
         </list>
@@ -98,3 +98,9 @@ export default {
     }
 }
 </script>
+
+<style scoped="scoped">
+    .list-container{
+        background-color: #f5f5f5;
+    }
+</style>
