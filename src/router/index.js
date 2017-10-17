@@ -5,6 +5,7 @@ const Index = (resolve) => { require(['./index.vue'], resolve) }
 const Flex = (resolve) => { require(['../components/flex/demo/index.vue'], resolve) }
 const List = (resolve) => { require(['../components/list/demo/index.vue'], resolve) }
 const WhiteSpace = (resolve) => { require(['../components/white-space/demo/index.vue'], resolve) }
+const WingBlank = (resolve) => { require(['../components/wing-blank/demo/index.vue'], resolve) }
 
 Vue.use(Router)
 
@@ -25,6 +26,10 @@ export default new Router({
         name: 'whiteSpace',
         path: '/whiteSpace',
         component: WhiteSpace
+    }, {
+        name: 'WingBlank',
+        path: '/WingBlank',
+        component: WingBlank
     }],
     mode: 'history',
     scrollBehavior (to, from, savedPosition) {
