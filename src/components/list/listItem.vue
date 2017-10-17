@@ -1,6 +1,6 @@
 <template>
-    <div @touchstart="touchstart($event)" @touchend="touchend($event)" @touchcancel="touchend($event)"
-         :class="wrapCls">
+    <div @touchstart="touchstart($event)" @touchend="touchend" @touchcancel="touchend"
+         :class="wrapCls" :style="touching ? activeStyle : ''">
         <div v-if="thumb||$slots.thumb" :class="`${prefixCls}-thumb`">
             <slot v-if="$slots.thumb" name="thumb"></slot>
             <img v-else-if="thumb" :src="thumb">
@@ -15,7 +15,7 @@
             </div>
             <div v-if="arrow" :class="arrowCls" aria-hidden="true"></div>
         </div>
-        <ripple2 v-if="platform==='android'"/><!-- // TODO IOS样式没有写 -->
+        <ripple2 v-if="!disabled && activeType === 'android'"></ripple2>
     </div>
 </template>
 
@@ -39,17 +39,26 @@ export default {
         error: Boolean,
         multipleLine: Boolean,
         wrap: Boolean,
-        activeStyle: Object, // TODO 可能不是Object可能是String
+        activeStyle: [Object, String],
         platform: {
             type: String,
-            default: 'ios'
+            default: 'cross'
         },
         disabled: Boolean
     },
     computed: {
+        activeType () {
+            if (this.platform === 'cross') {
+                let u = navigator.userAgent
+                let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1 // 为什么不用includes来判断是否存在呢，因为有些浏览器不支持~~~~所以~~
+                return isAndroid ? 'android' : 'ios'
+            }
+            return this.platform
+        },
         wrapCls () {
             return [
                 `${this.prefixCls}-item`,
+                {[`${this.prefixCls}-item-active`]: !this.disabled && this.touching && this.activeType === 'ios'},
                 {[`${this.prefixCls}-item-disabled`]: this.disabled},
                 {[`${this.prefixCls}-item-error`]: this.error},
                 {[`${this.prefixCls}-item-top`]: this.align === 'top'},
@@ -92,7 +101,7 @@ export default {
                 }, 450)
             }
         },
-        touchend ($event) {
+        touchend () {
             this.touching = false
             window.clearTimeout(this.touchingClock)
             this.touchingClock = null
