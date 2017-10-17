@@ -1,6 +1,6 @@
 <template>
     <div :class="itemCls">
-        <div :class="headerCls" role="tab" :aria-expanded="isActive">
+        <div @click="itemClick" :class="headerCls" role="tab" :aria-expanded="isActive">
             <i v-if="showArrow" className="arrow"/>
             {{header}}
         </div>
@@ -41,6 +41,11 @@ export default {
             return [
                 `${this.prefixCls}-header`
             ]
+        }
+    },
+    methods: {
+        itemClick () {
+            this.$parent.itemClick(this.k)
         }
     }
 }

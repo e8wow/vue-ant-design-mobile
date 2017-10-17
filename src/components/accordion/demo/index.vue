@@ -1,10 +1,10 @@
 <template>
     <div>
-        <collapse>
-            <panel header="测试" k="test" isActive>
+        <collapse :input="['a','b']">
+            <panel header="测试" k="a">
                 123
             </panel>
-            <panel header="测试" k="test" isActive>
+            <panel header="测试" k="b" isActive>
                 123
             </panel>
         </collapse>
