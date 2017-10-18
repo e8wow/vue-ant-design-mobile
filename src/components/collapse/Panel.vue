@@ -26,8 +26,12 @@ export default {
             type: Boolean,
             default: true
         },
-        isActive: Boolean,
         disabled: Boolean
+    },
+    data () {
+        return {
+            isActive: false
+        }
     },
     computed: {
         itemCls () {
@@ -45,7 +49,9 @@ export default {
     },
     methods: {
         itemClick () {
-            this.$parent.itemClick(this.k)
+            if (!this.disabled) {
+                this.$parent.itemClick(this.k)
+            }
         }
     }
 }
