@@ -13,6 +13,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs"
   },
   "dependencies": {
+    "iscroll": "^5.2.0",
     "normalize.css": "^7.0.0",
     "vue": "^2.4.2",
     "vue-router": "^2.7.0"

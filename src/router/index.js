@@ -6,6 +6,7 @@ const Index = (resolve) => { require(['./index.vue'], resolve) }
 const Accordion = (resolve) => { require(['../components/accordion/demo/index.vue'], resolve) }
 const Flex = (resolve) => { require(['../components/flex/demo/index.vue'], resolve) }
 const List = (resolve) => { require(['../components/list/demo/index.vue'], resolve) }
+const ScrollView = (resolve) => { require(['../components/scroll-view/demo/index.vue'], resolve) }
 const WhiteSpace = (resolve) => { require(['../components/white-space/demo/index.vue'], resolve) }
 const WingBlank = (resolve) => { require(['../components/wing-blank/demo/index.vue'], resolve) }
 
@@ -28,6 +29,10 @@ export default new Router({
         name: 'list',
         path: '/list',
         component: List
+    }, {
+        name: 'scrollView',
+        path: '/scrollView',
+        component: ScrollView
     }, {
         name: 'whiteSpace',
         path: '/whiteSpace',
