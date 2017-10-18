@@ -1,27 +1,25 @@
 <template>
     <div>
-        <collapse :activeKey="keys" @change="change" defaultActiveKey="b" accordion>
+        <accordion :activeKey="keys" @change="change" defaultActiveKey="b">
             <panel header="测试" k="a">
                 123
             </panel>
-            <panel header="测试" k="b">
+            <panel header="测试" k="b" disabled>
                 123
             </panel>
-            <panel header="测试" k="c" disabled>
+            <panel header="测试" k="c">
                 123
             </panel>
-        </collapse>
+        </accordion>
     </div>
 </template>
 
 <script>
 import Accordion from '../index.vue'
-import Collapse from '../../collapse/Collapse.vue'
-import Panel from '../../collapse/Panel.vue'
-import PanelContent from '../../collapse/PanelContent.vue'
+import Panel from '../Panel.vue'
 
 export default {
-    components: {Accordion, Collapse, Panel, PanelContent},
+    components: {Accordion, Panel},
     data () {
         return {
             keys: []
@@ -36,5 +34,5 @@ export default {
 </script>
 
 <style lang="less">
-    @import "../../collapse/style/index.less";
+    @import "../style/index.less";
 </style>

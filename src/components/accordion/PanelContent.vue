@@ -11,7 +11,7 @@ export default {
     props: {
         prefixCls: {
             type: String,
-            default: 'am-collapse'
+            default: 'am-accordion'
         },
         isActive: Boolean,
         destroyInactivePanel: Boolean

@@ -1,10 +1,10 @@
 <template>
     <div :class="itemCls">
         <div @click="itemClick" :class="headerCls" role="tab" :aria-expanded="isActive">
-            <i v-if="showArrow" className="arrow"/>
+            <i v-if="showArrow" class="arrow"></i>
             {{header}}
         </div>
-        <panel-content :isActive="isActive">
+        <panel-content :prefixCls="prefixCls" :isActive="isActive">
             <slot></slot>
         </panel-content>
     </div>
@@ -18,7 +18,7 @@ export default {
     props: {
         prefixCls: {
             type: String,
-            default: 'am-collapse'
+            default: 'am-accordion'
         },
         k: String,
         header: String,
