@@ -16,8 +16,10 @@ export default {
         }
     },
     mounted () {
-        console.log(this.$el.style)
-        this.IScroll = new IScroll(document.querySelector('.am-scrollview'))
+        this.IScroll = new IScroll(this.$el, {
+            mouseWheel: true,
+            scrollbars: true
+        })
     }
 }
 </script>
