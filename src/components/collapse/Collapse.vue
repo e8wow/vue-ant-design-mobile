@@ -39,9 +39,9 @@ export default {
             } else {
                 this.currentKeys = this.activeKey
                 this.currentKeys.sort()
-                this.currentKeys.forEach((k, index) => {
-                    if (this.currentKeys.includes(k, index + 1)) {
-                        this.currentKeys.splice(index, 1)
+                this.currentKeys.forEach((k, i) => {
+                    if (this.currentKeys.indexOf(k, i) >= 0) {
+                        this.currentKeys.splice(i, 1)
                     }
                 })
             }
@@ -51,10 +51,11 @@ export default {
     },
     methods: {
         itemClick (k) {
+            let index = this.currentKeys.indexOf(k)
             if (this.accordion) {
-                this.currentKeys = this.currentKeys.includes(k) ? [] : [k]
-            } else if (this.currentKeys.includes(k)) {
-                this.currentKeys.splice(this.currentKeys.indexOf(k), 1)
+                this.currentKeys = index >= 0 ? [] : [k]
+            } else if (index >= 0) {
+                this.currentKeys.splice(index, 1)
             } else {
                 this.currentKeys.push(k)
             }
@@ -64,7 +65,7 @@ export default {
     watch: {
         currentKeys (currentKeys) {
             this.$children.forEach(child => {
-                child.isActive = currentKeys.includes(child.k)
+                child.isActive = currentKeys.indexOf(child.k) >= 0
             })
         }
     }
