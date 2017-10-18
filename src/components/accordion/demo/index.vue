@@ -18,7 +18,7 @@
             </accordion>
         </div>
         <div style="margin-top: 50px;">
-            <accordion :activeKey="keys" @change="change" defaultActiveKey="a" accordion openAnimation>
+            <accordion @change="change" accordion openAnimation>
                 <panel header="Title 1" k="a">
                     <list>
                         <list-item>content 1</list-item>
@@ -47,7 +47,7 @@ export default {
     components: {Accordion, List, ListItem, Panel},
     data () {
         return {
-            keys: 'b'
+            keys: 'a'
         }
     },
     methods: {
