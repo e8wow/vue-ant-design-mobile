@@ -28,11 +28,6 @@ export default {
         },
         disabled: Boolean
     },
-    data () {
-        return {
-            isActive: false
-        }
-    },
     computed: {
         itemCls () {
             return [
@@ -45,6 +40,9 @@ export default {
             return [
                 `${this.prefixCls}-header`
             ]
+        },
+        isActive () {
+            return this.$parent.currentKeys.indexOf(this.k) >= 0
         }
     },
     methods: {
@@ -56,7 +54,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>

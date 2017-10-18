@@ -17,8 +17,8 @@ export default {
         },
         activeKey: [Array, String], // 激活的keys
         defaultActiveKey: String,
-        accordion: Boolean
-        // openAnimation 暂时不做
+        accordion: Boolean,
+        openAnimation: Boolean
     },
     data () {
         return {
@@ -31,7 +31,7 @@ export default {
         }
     },
     created () {
-        if (this.activeKey) {
+        if (this.activeKey && this.activeKey.length > 0) {
             if (typeof this.activeKey === 'string') {
                 this.currentKeys = [this.activeKey]
             } else if (this.accordion) {
@@ -60,13 +60,6 @@ export default {
                 this.currentKeys.push(k)
             }
             this.$emit('change', this.currentKeys)
-        }
-    },
-    watch: {
-        currentKeys (currentKeys) {
-            this.$children.forEach(child => {
-                child.isActive = currentKeys.indexOf(child.k) >= 0
-            })
         }
     }
 }
