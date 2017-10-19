@@ -38,7 +38,6 @@ export default {
             type: Boolean,
             default: true
         },
-        virtualTranslate: Boolean, // 虚拟位移。当你启用这个参数，Swiper除了不会移动外其他的都像平时一样运行，仅仅是不会在Wrapper上设置位移。当你想自定义一些slide切换效果时可以用。
         width: Number, // 强制Swiper的宽度
         height: Number, // 强制Swiper的高度
         roundLengths: Boolean, // 计算宽高等结果取整
@@ -103,7 +102,6 @@ export default {
                 autoplayStopOnLast: this.autoplayStopOnLast,
                 parallax: this.parallax,
                 setWrapperSize: this.setWrapperSize,
-                virtualTranslate: this.virtualTranslate,
                 width: this.width,
                 height: this.height,
                 roundLengths: this.roundLengths,
@@ -119,6 +117,11 @@ export default {
                 ...this.navigationButtonConfig
 
             })
+        })
+    },
+    updated () {
+        this.$nextTick(() => {
+            this.swiper.update()
         })
     }
 }
