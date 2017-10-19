@@ -1,0 +1,24 @@
+<template>
+    <div :class="paginationCls"></div>
+</template>
+
+<script>
+export default {
+    props: {
+        type: {
+            type: String,
+            default: 'bullets'
+        },
+        clickable: Boolean,
+        hide: Boolean
+    },
+    computed: {
+        paginationCls () {
+            return [
+                'swiper-pagination',
+                `${this.$parent.prefixCls}-pagination`
+            ]
+        }
+    }
+}
+</script>

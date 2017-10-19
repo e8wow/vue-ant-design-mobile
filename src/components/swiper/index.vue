@@ -1,10 +1,11 @@
 <template>
     <div :class="containerCls" style="height:100%">
-        <div :class="wrapCls">
+        <div :class="wrapperCls">
             <slot></slot>
         </div>
-        <div v-if="scrollbar" :class="scrollBarCls"></div>
-        <div :class="paginationCls"></div>
+
+        <slot name="scrollBar"></slot>
+        <slot name="pagination"></slot>
     </div>
 </template>
 
@@ -42,17 +43,7 @@ export default {
         roundLengths: Boolean, // 计算宽高等结果取整
         breakpoints: Object, // 断点设定：根据屏幕宽度设置某参数为不同的值，类似于响应式布局的media screen。
         autoHeight: Boolean, // 高度自适应
-        nested: Boolean, // 用于嵌套相同方向的swiper时，当切换到子swiper时停止父swiper的切换。
-
-        scrollbar: Boolean, // 是否开启scrollBar
-        scrollbarHide: {// 滚动条是否自动隐藏。默认：true会自动隐藏。
-            type: Boolean,
-            default: true
-        },
-        scrollbarDraggable: Boolean, // 该参数设置为true时允许拖动滚动条。
-        scrollbarSnapOnRelease: Boolean, // 如果设置为true，释放滚动条时slide自动贴合。
-
-        pagination: Boolean // 是否开启分页器
+        nested: Boolean // 用于嵌套相同方向的swiper时，当切换到子swiper时停止父swiper的切换。
     },
     data () {
         return {swiper: null}
@@ -64,23 +55,29 @@ export default {
                 this.prefixCls
             ]
         },
-        wrapCls () {
+        wrapperCls () {
             return [
                 'swiper-wrapper',
                 `${this.prefixCls}-wrapper`
             ]
         },
-        scrollBarCls () {
-            return [
-                'swiper-scrollbar',
-                `${this.prefixCls}-scrollbar`
-            ]
+        scrollBarConfig () {
+            const scrollBar = this.$slots.scrollBar
+            return scrollBar ? {
+                scrollbar: `.${this.prefixCls}-scrollbar`,
+                scrollbarHide: scrollBar[0].componentInstance.hide,
+                scrollbarDraggable: scrollBar[0].componentInstance.drag,
+                scrollbarSnapOnRelease: scrollBar[0].componentInstance.snap
+            } : {}
         },
-        paginationCls () {
-            return [
-                'swiper-pagination',
-                `${this.prefixCls}-pagination`
-            ]
+        paginationConfig () {
+            const pagination = this.$slots.pagination
+            return pagination ? {
+                pagination: `.${this.prefixCls}-pagination`,
+                paginationType: pagination[0].componentInstance.type,
+                paginationClickable: pagination[0].componentInstance.clickable,
+                paginationHide: pagination[0].componentInstance.hide
+            } : {}
         }
     },
     mounted () {
@@ -101,11 +98,9 @@ export default {
                 breakpoints: this.breakpoints,
                 autoHeight: this.autoHeight,
                 nested: this.nested,
-                scrollbar: this.scrollbar ? '.swiper-scrollbar' : '',
-                scrollbarHide: this.scrollbarHide,
-                scrollbarDraggable: this.scrollbarDraggable,
-                scrollbarSnapOnRelease: this.scrollbarSnapOnRelease,
-                pagination: this.pagination ? '.swiper-pagination' : ''
+
+                ...this.scrollBarConfig,
+                ...this.paginationConfig
             })
         })
     }
