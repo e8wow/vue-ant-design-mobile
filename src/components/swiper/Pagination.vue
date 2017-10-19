@@ -22,3 +22,11 @@ export default {
     }
 }
 </script>
+
+<style lang="less">
+    .am-swiper-pagination{
+        .swiper-pagination-bullet-active{
+            background-color: #888;
+        }
+    }
+</style>

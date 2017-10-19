@@ -1,9 +1,10 @@
 <template>
-    <div :class="containerCls" style="height:100%">
+    <div :class="containerCls">
         <div :class="wrapperCls">
             <slot></slot>
         </div>
 
+        <slot name="navigation"></slot>
         <slot name="scrollBar"></slot>
         <slot name="pagination"></slot>
     </div>
@@ -43,7 +44,12 @@ export default {
         roundLengths: Boolean, // 计算宽高等结果取整
         breakpoints: Object, // 断点设定：根据屏幕宽度设置某参数为不同的值，类似于响应式布局的media screen。
         autoHeight: Boolean, // 高度自适应
-        nested: Boolean // 用于嵌套相同方向的swiper时，当切换到子swiper时停止父swiper的切换。
+        nested: Boolean, // 用于嵌套相同方向的swiper时，当切换到子swiper时停止父swiper的切换。
+        loop: Boolean,
+        loopedSlides: {// 在loop模式下使用slidesPerview:'auto',还需使用该参数设置所要用到的loop个数。
+            type: Number,
+            default: 1
+        }
     },
     data () {
         return {swiper: null}
@@ -78,6 +84,12 @@ export default {
                 paginationClickable: pagination[0].componentInstance.clickable,
                 paginationHide: pagination[0].componentInstance.hide
             } : {}
+        },
+        navigationButtonConfig () {
+            return this.$slots.navigation ? {
+                prevButton: `.${this.prefixCls}-button-prev`,
+                nextButton: `.${this.prefixCls}-button-next`
+            } : {}
         }
     },
     mounted () {
@@ -98,9 +110,14 @@ export default {
                 breakpoints: this.breakpoints,
                 autoHeight: this.autoHeight,
                 nested: this.nested,
+                loop: this.loop,
+                loopAdditionalSlides: this.loopAdditionalSlides,
+                loopedSlides: this.loopedSlides,
 
                 ...this.scrollBarConfig,
-                ...this.paginationConfig
+                ...this.paginationConfig,
+                ...this.navigationButtonConfig
+
             })
         })
     }
