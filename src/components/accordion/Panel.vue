@@ -1,8 +1,9 @@
 <template>
     <div :class="itemCls">
         <div @click="itemClick" :class="headerCls" :aria-expanded="isActive">
-            <i v-if="showArrow" class="arrow"></i>
             {{header}}
+            <slot v-if="$slots.header" name="header"></slot>
+            <i v-if="showArrow" class="arrow"></i>
         </div>
         <panel-content :prefixCls="prefixCls" :isActive="isActive">
             <slot></slot>

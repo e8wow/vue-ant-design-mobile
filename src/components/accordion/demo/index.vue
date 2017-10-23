@@ -12,7 +12,8 @@
                 <panel header="Title 2" k="b" disabled>
                     this is panel content2 or other
                 </panel>
-                <panel header="Title 3" k="c">
+                <panel k="c">
+                    <div slot="header">slot header</div>
                     text text text text text text text text text text text text text text text
                 </panel>
             </accordion>
