@@ -98,9 +98,3 @@ export default {
     }
 }
 </script>
-
-<style scoped="scoped">
-    .list-container{
-        background-color: #f5f5f5;
-    }
-</style>
