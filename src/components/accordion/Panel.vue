@@ -1,6 +1,6 @@
 <template>
     <div :class="itemCls">
-        <div @click="itemClick" :class="headerCls" role="tab" :aria-expanded="isActive">
+        <div @click="itemClick" :class="headerCls" :aria-expanded="isActive">
             <i v-if="showArrow" class="arrow"></i>
             {{header}}
         </div>
