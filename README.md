@@ -8,7 +8,7 @@
 # 安装依赖包
 npm install
 
-# 开发者模式运行
+# 开发者模式运行 http://localhost:10000/demo
 npm run dev
 
 # 打包项目
