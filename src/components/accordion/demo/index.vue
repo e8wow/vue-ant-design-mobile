@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <accordion :activeKey="keys" @change="change" defaultActiveKey="a">
+            <accordion defaultActiveKey="a">
                 <panel header="Title 1" k="a">
                     <list>
                         <list-item>content 1</list-item>
@@ -12,13 +12,14 @@
                 <panel header="Title 2" k="b" disabled>
                     this is panel content2 or other
                 </panel>
-                <panel header="Title 3" k="c">
+                <panel k="c">
+                    <div slot="header">slot header</div>
                     text text text text text text text text text text text text text text text
                 </panel>
             </accordion>
         </div>
         <div style="margin-top: 50px;">
-            <accordion :activeKey="keys" @change="change" defaultActiveKey="a" accordion openAnimation>
+            <accordion accordion openAnimation>
                 <panel header="Title 1" k="a">
                     <list>
                         <list-item>content 1</list-item>
@@ -44,19 +45,6 @@ import ListItem from '../../list/ListItem.vue'
 import Panel from '../Panel.vue'
 
 export default {
-    components: {Accordion, List, ListItem, Panel},
-    data () {
-        return {
-            keys: 'b'
-        }
-    },
-    methods: {
-        change (keys) {
-        }
-    }
+    components: {Accordion, List, ListItem, Panel}
 }
 </script>
-
-<style lang="less">
-    @import "../style/index.less";
-</style>

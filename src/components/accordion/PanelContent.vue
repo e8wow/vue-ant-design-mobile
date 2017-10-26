@@ -1,5 +1,5 @@
 <template>
-    <div :class="contentCls" role="tabpanel">
+    <div :class="contentCls">
         <div :class="`${this.prefixCls}-content-box`" ref="contentBox">
             <slot v-if="!(!isActive && destroyInactivePanel)"></slot>
         </div>
@@ -26,8 +26,13 @@ export default {
             ]
         }
     },
-    mounted () {
-        this.$el.style.height = `${this.$refs.contentBox.offsetHeight}px`
+    updated () {
+        this.$el.style.height = this.isActive ? `${this.$refs.contentBox.offsetHeight}px` : '0px'
+    },
+    watch: {
+        isActive (isActive) {
+            this.$el.style.height = isActive ? `${this.$refs.contentBox.offsetHeight}px` : '0px'
+        }
     }
 }
 </script>
