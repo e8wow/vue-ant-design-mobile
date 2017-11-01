@@ -1,10 +1,16 @@
 <template>
     <div :class="prefixCls">
-        <div v-if="renderHeader" :class="`${prefixCls}-header`">{{renderHeader}}</div>
+        <div v-if="renderHeader||$slots.header" :class="`${prefixCls}-header`">
+            {{renderHeader}}
+            <slot v-if="$slots.header" name="header"></slot>
+        </div>
         <div :class="`${prefixCls}-body`">
             <slot></slot>
         </div>
-        <div v-if="renderFooter" :class="`${prefixCls}-footer`">{{renderFooter}}</div>
+        <div v-if="renderFooter||$slots.footer" :class="`${prefixCls}-footer`">
+            {{renderFooter}}
+            <slot v-if="$slots.footer" name="footer"></slot>
+        </div>
     </div>
 </template>
 
