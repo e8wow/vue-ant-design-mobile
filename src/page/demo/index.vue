@@ -78,7 +78,7 @@ export default {
                 title: '数据录入 Data Entry',
                 list: [{
                     title: 'Button 按钮',
-                    link: ''
+                    link: '/demo/button'
                 }, {
                     title: 'Calendar 日历',
                     link: ''

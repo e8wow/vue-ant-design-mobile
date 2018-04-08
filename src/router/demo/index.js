@@ -2,6 +2,7 @@ const DemoRouter = (resolve) => { require(['../../page/demo.vue'], resolve) }
 const Index = (resolve) => { require(['../../page/demo/index.vue'], resolve) }
 
 const Accordion = (resolve) => { require(['../../components/accordion/demo/index.vue'], resolve) }
+const Button = (resolve) => { require(['../../components/button/demo/index.vue'], resolve) }
 const Flex = (resolve) => { require(['../../components/flex/demo/index.vue'], resolve) }
 const List = (resolve) => { require(['../../components/list/demo/index.vue'], resolve) }
 const Swiper = (resolve) => { require(['../../components/swiper/demo/index.vue'], resolve) }
@@ -17,6 +18,9 @@ export default {
     }, {
         path: 'accordion',
         component: Accordion
+    }, {
+        path: 'button',
+        component: Button
     }, {
         path: 'flex',
         component: Flex

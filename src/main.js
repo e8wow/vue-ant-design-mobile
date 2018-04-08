@@ -4,7 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-require('normalize.css')
+import 'normalize.css'
+import './components/icon/assets/ionicons.less'
+import './components/style/index.less'
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

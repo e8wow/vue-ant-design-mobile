@@ -198,4 +198,17 @@
             transform: translate(0, -100%);
         }
     }
+
+    &-rotate {
+        animation: amRotate 1000ms infinite ease-in-out;
+    }
+
+    @keyframes amRotate {
+        0% {
+            transform: rotate(0);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
 }

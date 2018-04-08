@@ -6,6 +6,7 @@
 
 <script>
 export default {
+    name: 'am-accordion',
     model: {
         prop: 'activeKey',
         event: 'change'

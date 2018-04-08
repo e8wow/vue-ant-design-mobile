@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import WhiteSpace from '../index.vue'
+import { WhiteSpace } from '../../../../main'
 
 export default {
     components: {WhiteSpace}

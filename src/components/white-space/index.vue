@@ -4,10 +4,15 @@
 
 <script>
 export default {
+    name: 'am-whitespace',
     props: {
+        prefixCls: {
+            type: String,
+            default: () => 'am-whitespace'
+        },
         size: {
             type: String,
-            default: 'md'
+            default: () => 'md'
         }
     },
     computed: {
@@ -16,11 +21,6 @@ export default {
                 this.prefixCls,
                 `${this.prefixCls}-${this.size}`
             ]
-        }
-    },
-    data () {
-        return {
-            prefixCls: 'am-whitespace'
         }
     }
 }

@@ -1,7 +1,7 @@
 <template>
     <div style=" padding: 15px 0">
         <wing-blank>
-           <div class="demo-block">Block</div>
+            <div class="demo-block">Block</div>
         </wing-blank>
 
         <white-space size="lg"/>
@@ -17,8 +17,7 @@
 </template>
 
 <script>
-import WhiteSpace from '../../white-space/index.vue'
-import WingBlank from '../index.vue'
+import { WhiteSpace, WingBlank } from '../../../../main'
 
 export default {
     components: {WhiteSpace, WingBlank}

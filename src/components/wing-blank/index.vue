@@ -6,15 +6,15 @@
 
 <script>
 export default {
+    name: 'am-wingblank',
     props: {
+        prefixCls: {
+            type: String,
+            default: () => 'am-wingblank'
+        },
         size: {
             type: String,
-            default: 'lg'
-        }
-    },
-    data () {
-        return {
-            prefixCls: 'am-wingblank'
+            default: () => 'lg'
         }
     },
     computed: {
